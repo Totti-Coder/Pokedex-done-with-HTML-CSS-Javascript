@@ -60,8 +60,8 @@ function showPokemons(pokemonList) {
 searchInput.addEventListener("keyup", filterResults);
 
 function filterResults() {
-  const searchTerm = searchInput.value.toLowerCase();
-  let searchedPokemons;
+  const searchTerm = searchInput.value.toLowerCase()
+  let searchedPokemons
 
   if (numberFilter.checked) {
     searchedPokemons = allPokemons.filter((pokemon) => {
@@ -70,12 +70,11 @@ function filterResults() {
     });
   } else if (nameFilter.checked) {
     searchedPokemons = allPokemons.filter((pokemon) => {
-      return pokemon.name.toLowerCase().startsWith(searchTerm);
+      return pokemon.name.toLowerCase().startsWith(searchTerm)
     });
   } else {
-    searchedPokemons = allPokemons;
+    searchedPokemons = allPokemons
   }
-
   showPokemons(searchedPokemons);
 
   if (searchedPokemons.length === 0) {
