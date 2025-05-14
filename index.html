@@ -1,58 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokedex | Pablo García </title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./script.js" defer></script>
+    <script src="./search.js" defer></script>
+  </head>
+  <body>
     <main class="main">
-    <header class="header-home">
+      <header class="header home">
         <div class="container">
-            <div class="logo-wrapper">
-                <img src="/imgs/pokeball.svg" alt="pokeball">
-                <h1>Pokedex</h1>
+          <div class="logo-wrapper">
+            <img src="./imgs/pokeball.svg" alt="pokeball" />
+            <h1>Pokedex</h1>
+          </div>
+          <div class="search-wrapper">
+            <div class="search-wrap">
+              <img
+                src="./imgs/search.svg"
+                alt="search icon"
+                class="search-icon"
+              />
+              <input
+                type="text"
+                class="search-input body3-fonts"
+                placeholder="Search"
+                id="search-input"
+              />
+              <img
+                src="./imgs/cross.svg"
+                alt="cross icon"
+                class="search-close-icon"
+                id="search-close-icon"
+              />
             </div>
-
-
-            <div class="search-wrapper">
-                <div class="search-wrap">
-                    <img src="/imgs/search.svg" alt="search icon" class="search-icon">
-                    <input type="text" class="search-input body3-fonts" placeholder="Search" id="search-input">
-                    <img src="/imgs/cross.svg" alt="cross icon" class="search-close-icon" id="search-close-icon">
-                    <!-- I reference twice the image using class for styling and id for reference the item in javascript -->
+            <div class="sort-wrapper">
+              <div class="sort-wrap">
+                <img
+                  src="./imgs/sorting.svg"
+                  alt="sorting"
+                  class="sort-icon"
+                  id="sort-icon"
+                />
+              </div>
+              <div class="filter-wrapper">
+                <p class="body2-fonts">Sort by:</p>
+                <div class="filter-wrap">
+                  <div>
+                    <input
+                      type="radio"
+                      id="number"
+                      name="filters"
+                      value="number"
+                      checked
+                    />
+                    <label for="number" class="body3-fonts">Number</label>
+                  </div>
+                  <div>
+                    <input type="radio" id="name" name="filters" value="name" />
+                    <label for="name" class="body3-fonts">Name</label>
+                  </div>
                 </div>
-
-
-                <div class="sort-wrapper">
-                    <div class="sort wrap">
-                        <img src="/imgs/sorting.svg" alt="sorting" class="sort-icon" id="sort-icon">
-                    </div>
-                    <div class="filter-wrapper">
-                        <p class="body2-fonts">Sort by:</p>
-                        <div class="filter-wrap">
-                            <div>
-                                <input type="radio" id="number" name="filters" value="number" checked>
-                                <label for="number" class="body3-fonts">Number</label>
-                            </div>
-                            <div>
-                                 <input type="radio" id="name" name="filters" value="name">
-                                <label for="name" class="body3-fonts">Name</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
-        <section class="pokemon-list">
-            <div class="container">
-                <div class="list-wrapper"></div>
-            </div>
-            <div id="not-found-msg">Pokemon not found!</div>
-        </section>
-    </header>
+      </header>
+      <section class="pokemon-list">
+        <div class="container">
+          <div class="list-wrapper"></div>
+        </div>
+        <div id="not-found-message">Pokemon not found</div>
+      </section>
     </main>
-    <script src="script.js" defer></script>
-</body>
+  </body>
 </html>
