@@ -30,7 +30,7 @@ async function loadPokemon(id) {
     abilitiesWrapper.innerHTML = "";
 
     if (currentPokemonId === id) {
-      displayPokemonDetails(pokemon);
+      showPokemonDetails(pokemon);
       const flavorText = getEnglishFlavorText(pokemonSpecies);
       document.querySelector(".body3-fonts.pokemon-description").textContent =
         flavorText;
@@ -38,21 +38,21 @@ async function loadPokemon(id) {
       const [leftArrow, rightArrow] = ["#leftArrow", "#rightArrow"].map((sel) =>
         document.querySelector(sel)
       );
-      leftArrow.removeEventListener("click", navigatePokemon);
-      rightArrow.removeEventListener("click", navigatePokemon);
+      leftArrow.removeEventListener("click", explorePokemon);
+      rightArrow.removeEventListener("click", explorePokemon);
 
       if (id !== 1) {
         leftArrow.addEventListener("click", () => {
-          navigatePokemon(id - 1);
+          explorePokemon(id - 1);
         });
       }
       if (id !== 151) {
         rightArrow.addEventListener("click", () => {
-          navigatePokemon(id + 1);
+          explorePokemon(id + 1);
         });
       }
 
-      window.history.pushState({}, "", `./detail.html?id=${id}`);
+      window.history.pushState({}, "", `./details.html?id=${id}`);
     }
 
     return true;
@@ -62,7 +62,7 @@ async function loadPokemon(id) {
   }
 }
 
-async function navigatePokemon(id) {
+async function explorePokemon(id) {
   currentPokemonId = id;
   await loadPokemon(id);
 }
@@ -70,22 +70,22 @@ async function navigatePokemon(id) {
 const typeColors = {
   normal: "#A8A878",
   fire: "#F08030",
-  water: "#6890F0",
-  electric: "#F8D030",
-  grass: "#78C850",
+  water: "#00BFFF",
+  electric: "#FAC000",
+  grass: "#00A86B",
   ice: "#98D8D8",
-  fighting: "#C03028",
-  poison: "#A040A0",
+  fighting: "#7F4000",
+  poison: "#6F35FC",
   ground: "#E0C068",
   flying: "#A890F0",
   psychic: "#F85888",
   bug: "#A8B820",
   rock: "#B8A038",
   ghost: "#705898",
-  dragon: "#7038F8",
-  dark: "#705848",
+  dragon: "#5060E1",
+  dark: "#4F3F3D",
   steel: "#B8B8D0",
-  dark: "#EE99AC",
+  fairy: "#EE99AC",
 };
 
 function setElementStyles(elements, cssProperty, value) {
@@ -159,7 +159,7 @@ function createAndAppendElement(parent, tag, options = {}) {
   return element;
 }
 
-function displayPokemonDetails(pokemon) {
+function showPokemonDetails(pokemon) {
   const { name, id, types, weight, height, abilities, stats } = pokemon;
   const capitalizePokemonName = capitalizeFirstLetter(name);
 
