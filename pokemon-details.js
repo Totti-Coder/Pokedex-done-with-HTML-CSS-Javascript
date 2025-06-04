@@ -1,7 +1,7 @@
 let currentPokemonId = null;
 
 document.addEventListener("DOMContentLoaded", () => {
-  const MAX_POKEMONS = 151;
+  const MAX_POKEMONS = 386;
   const pokemonID = new URLSearchParams(window.location.search).get("id");
   const id = parseInt(pokemonID, 10);
 
@@ -235,7 +235,7 @@ function showPokemonDetails(pokemon) {
     createAndAppendElement(statDiv, "progress", {
       className: "progress-bar",
       value: base_stat,
-      max: 100,
+      max: 150,
     });
   });
 

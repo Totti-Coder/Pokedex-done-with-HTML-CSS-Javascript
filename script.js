@@ -1,4 +1,4 @@
-const MAX_POKEMON = 151;
+const MAX_POKEMON = 386;
 const listWrapper = document.querySelector(".list-wrapper");
 const searchInput = document.querySelector("#search-input");
 const numberFilter = document.querySelector("#number");
@@ -7,6 +7,7 @@ const notFoundMessage = document.querySelector("#not-found-message");
 
 let allPokemons = [];
 
+/* Function to obtain the list of pokemons from the PokeApi */
 fetch(`https://pokeapi.co/api/v2/pokemon?limit=${MAX_POKEMON}`)
   .then((response) => response.json())
   .then((data) => {
@@ -14,6 +15,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon?limit=${MAX_POKEMON}`)
     displayPokemons(allPokemons);
   });
 
+/* This function preloads a Pokémon's data before redirecting the user to another page (details.html)*/
 async function fetchPokemonDataBeforeRedirect(id) {
   try {
     const [pokemon, pokemonSpecies] = await Promise.all([
@@ -29,7 +31,7 @@ async function fetchPokemonDataBeforeRedirect(id) {
     console.error("Failed to fetch Pokemon data before redirect");
   }
 }
-
+/* Function that displays Pokemon details (id, image and name)*/
 function displayPokemons(pokemon) {
   listWrapper.innerHTML = "";
 
@@ -45,10 +47,10 @@ function displayPokemons(pokemon) {
             <img src="https://raw.githubusercontent.com/pokeapi/sprites/master/sprites/pokemon/other/dream-world/${pokemonID}.svg" alt="${pokemon.name}" />
         </div>
         <div class="name-wrap">
-            <p class="body3-fonts">#${pokemon.name}</p>
+            <p class="body2-fonts">#${pokemon.name}</p>
         </div>
     `;
-
+    /* When you click in a Pokemon it sends you to the details.html if there's no error. */
     listItem.addEventListener("click", async () => {
       const success = await fetchPokemonDataBeforeRedirect(pokemonID);
       if (success) {
@@ -60,17 +62,21 @@ function displayPokemons(pokemon) {
   });
 }
 
+/* This code implements the search function to filter the list of Pokémon as the user types in the search field. */
 searchInput.addEventListener("keyup", handleSearch);
 
 function handleSearch() {
   const searchTerm = searchInput.value.toLowerCase();
   let filteredPokemons;
 
+  /* If you sort by number */
   if (numberFilter.checked) {
     filteredPokemons = allPokemons.filter((pokemon) => {
       const pokemonID = pokemon.url.split("/")[6];
       return pokemonID.startsWith(searchTerm);
     });
+
+    /* If you sort by name */
   } else if (nameFilter.checked) {
     filteredPokemons = allPokemons.filter((pokemon) =>
       pokemon.name.toLowerCase().startsWith(searchTerm)
@@ -91,6 +97,7 @@ function handleSearch() {
 const closeButton = document.querySelector(".search-close-icon");
 closeButton.addEventListener("click", clearSearch);
 
+/* Function to clear the search */
 function clearSearch() {
   searchInput.value = "";
   displayPokemons(allPokemons);
