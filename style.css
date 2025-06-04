@@ -126,6 +126,12 @@ body {
   margin-right: 16px;
 }
 
+.pokedex-avatar{
+  width: 120px;
+  font-size: var(--headline-font-size);
+  line-height: var(--headline-line-height);
+}
+
 .search-wrapper,
 .search-wrap {
   display: flex;
