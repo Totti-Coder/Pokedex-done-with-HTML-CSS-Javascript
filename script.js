@@ -4,6 +4,9 @@ const searchInput = document.querySelector("#search-input");
 const numberFilter = document.querySelector("#number");
 const nameFilter = document.querySelector("#name");
 const notFoundMessage = document.querySelector("#not-found-message");
+const darkModeIcon = document.getElementById("dark-mode-icon");
+const iconDark = "imgs/solrock.png";
+const iconLight = "imgs/lunatone.png"; 
 
 let allPokemons = [];
 
@@ -31,7 +34,7 @@ async function fetchPokemonDataBeforeRedirect(id) {
     console.error("Failed to fetch Pokemon data before redirect");
   }
 }
-/* Function that displays Pokemon details (id, image and name)*/
+/* Function that displays Pokemon details (id, image and name) */
 function displayPokemons(pokemon) {
   listWrapper.innerHTML = "";
 
@@ -103,3 +106,32 @@ function clearSearch() {
   displayPokemons(allPokemons);
   notFoundMessage.style.display = "none";
 }
+
+const toggle = document.getElementById('toggle');
+const pokemonList = document.querySelector('.pokemon-list');
+const searchWrap = document.querySelector('.search-wrap');
+const searchingInput = document.getElementById('search-input');
+
+toggle.addEventListener('change', () => {
+  const isDark = toggle.checked;
+  
+  pokemonList.classList.toggle('dark', isDark);
+  searchWrap.classList.toggle('dark', isDark);
+  searchingInput.classList.toggle('dark', isDark);
+  
+  document.querySelectorAll('.list-item').forEach(item => {
+    item.classList.toggle('dark', isDark);
+  });
+});
+
+toggle.addEventListener("change", () => {
+  if (toggle.checked) {
+    
+    darkModeIcon.src = iconLight;
+    darkModeIcon.alt = "Light mode icon";
+  } else {
+    
+    darkModeIcon.src = iconDark;
+    darkModeIcon.alt = "Dark mode icon";
+  }
+});

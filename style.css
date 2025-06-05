@@ -9,8 +9,8 @@
 
   --headline-font-size: 24px;
   --body1-font-size: 14px;
-  --body2-font-size: 12px;
-  --body3-font-size: 11px;
+  --body2-font-size: 13px;
+  --body3-font-size: 12px;
   --subtitle1-font-size: 14px;
   --subtitle2-font-size: 12px;
   --subtitle3-font-size: 10px;
@@ -92,6 +92,18 @@ body {
   font-weight: bold;
 }
 
+#toggle{
+  display:none;
+}
+
+#label-toggle{
+  position: absolute;
+  top: 10px;
+  right:10px;
+  font-size: 3em;
+  cursor: pointer;
+}
+
 .main {
   margin: 0;
   padding: 0;
@@ -138,7 +150,6 @@ body {
   align-items: center;
   width: 100%;
   gap: 16px;
-  
 }
 
 .search-wrap {
@@ -146,7 +157,8 @@ body {
   background-color: var(--grayscale-white);
   border-radius: 16px;
   box-shadow: var(--drop-shadow-inner);
-  height: 32px;
+  width: 100%;
+  height: 42px;
   gap: 8px;
 }
 
@@ -161,6 +173,13 @@ body {
 .search-wrap > input {
   width: 60%;
   border: none;
+}
+
+.search-input{
+  font-style: italic;
+  background: transparent;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .sort-wrapper {
@@ -202,7 +221,7 @@ body {
   min-width: 113px;
   top: 40px;
   display: none;
-  z-index: 5000;
+  z-index: 4000;
 }
 
 .filter-wrapper-open {
@@ -252,10 +271,10 @@ body {
 .pokemon-list {
   background-color: var(--grayscale-light);
   box-shadow: var(--drop-shadow-inner);
-  margin: 10px 16px 0;
+  margin: 0px 16px 0;
   border-radius: 1rem;
   min-height: calc(85.5% - 0.1rem);
-  width: calc(100% - 1.5rem);
+  width: calc(100% - 10rem);
   max-height: 100px;
   overflow-y: auto;
 }
@@ -277,12 +296,14 @@ body {
   height: 8.85rem;
   text-align: center;
   text-decoration: none;
-  cursor: pointer;
+  cursor: url("imgs/Pokeball-Cursor.png"), pointer;
 }
 
 .list-item:hover {
   transform: scale(1.1);
-  background-color: var(--grayscale-white); /* subtle hover */
+  background-color: var(--grayscale-white);
+  box-shadow: 0 4px 8px rgba(0.6, 0.6, 0.6, 0.6); /* sombra suave */
+  transition: all 0.3s ease; /* para que la animación sea suave */
 }
 
 .list-item .number-wrap {
@@ -294,7 +315,6 @@ body {
 
 .list-item .name-wrap {
   border-radius: 8px;
-  background-color: var(--grayscale-background);
   padding: 24px 8px 4px 8px;
   color: var(--grayscale-dark);
   margin-top: -18px;
@@ -398,6 +418,8 @@ body {
 
 .list-item .name-wrap p {
   text-transform: capitalize;
+  font-size: 13px;
+
 }
 
 .detail-card-detail-wrapper .about-text {
@@ -556,4 +578,37 @@ div#not-found-message {
 .detail-main.main {
   border-color: transparent;
   background-color: transparent;
+}
+
+/* Dark themes */
+.pokemon-list.dark {
+  background-color: #333;
+}
+
+.pokemon-list.dark .list-item {
+  background-color: #4d4d4d;
+  border: 1px solid var(--grayscale-medium);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pokemon-list.dark .list-item .number-wrap {
+  color: var(--grayscale-white);
+}
+
+.pokemon-list.dark .list-item .name-wrap {
+  color: var(--grayscale-white);
+}
+
+.search-wrap.dark{
+  background-color: #4d4d4d;
+}
+
+.search-input.dark {
+  color: var(--grayscale-white); 
+}
+
+.search-input.dark::placeholder {
+  font-style: italic;
+  color: var(--grayscale-white);
+  opacity: 1; 
 }

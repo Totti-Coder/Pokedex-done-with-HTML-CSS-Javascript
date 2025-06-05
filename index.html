@@ -7,6 +7,7 @@
   <title>Pokedex | Pablo García Roza</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="/imgs/pokedex.svg" type="image/svg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   <script src="./script.js" defer></script>
   <script src="./search.js" defer></script>
 </head>
@@ -15,14 +16,18 @@
   <main class="main">
     <header class="header home">
       <div class="container">
+        <label for="toggle" id="label-toggle">
+          <img src="imgs/lunatone.png" alt="Dark color theme icon" width="70" height="62" id="dark-mode-icon">
+        </label>
+        <input type="checkbox" id="toggle">
         <div class="logo-wrapper">
-          <img src="./imgs/Pokedex-avatar.svg" alt="pokeball logo" class="pokedex-avatar"/>
+          <img src="./imgs/Pokedex-avatar.svg" alt="pokeball logo" class="pokedex-avatar" />
           <h1>| Pablo García Roza</h1>
         </div>
         <div class="search-wrapper">
           <div class="search-wrap">
             <img src="./imgs/search.svg" alt="search icon" class="search-icon" />
-            <input type="text" class="search-input body3-fonts" placeholder="Search a Pokemon" id="search-input" />
+            <input type="text" class="search-input" placeholder="Search a Pokemon" id="search-input" />
             <img src="./imgs/cross.svg" alt="cross icon" class="search-close-icon" id="search-close-icon" />
           </div>
           <div class="sort-wrapper">
