@@ -171,7 +171,7 @@ body {
 }
 
 .search-wrap > input {
-  width: 60%;
+  width: 100%;
   border: none;
 }
 
@@ -274,7 +274,8 @@ body {
   margin: 0px 16px 0;
   border-radius: 1rem;
   min-height: calc(85.5% - 0.1rem);
-  width: calc(100% - 10rem);
+  width: calc(100% - 2rem); 
+  margin: 0 auto;
   max-height: 100px;
   overflow-y: auto;
 }
@@ -612,3 +613,4 @@ div#not-found-message {
   color: var(--grayscale-white);
   opacity: 1; 
 }
+
