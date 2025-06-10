@@ -614,3 +614,29 @@ div#not-found-message {
   opacity: 1; 
 }
 
+.sort-wrapper.dark {
+  position: relative;
+}
+
+.sort-wrap.dark {
+  background-color: #4d4d4d;
+  border-radius: 100%;
+  min-width: 2rem;
+  min-height: 2rem;
+  box-shadow: var(--drop-shadow-inner);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.filter-wrap.dark {
+  background-color: #4d4d4d; 
+  box-shadow: var(--drop-shadow-inner);
+  color: var(--grayscale-dark); 
+}
+
+.filter-wrapper.dark > .body2-fonts {
+  color: var(--grayscale-dark); 
+}
+

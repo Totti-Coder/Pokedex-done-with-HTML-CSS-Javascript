@@ -107,10 +107,15 @@ function clearSearch() {
   notFoundMessage.style.display = "none";
 }
 
+/* Dark mode functions */
 const toggle = document.getElementById('toggle');
 const pokemonList = document.querySelector('.pokemon-list');
 const searchWrap = document.querySelector('.search-wrap');
 const searchingInput = document.getElementById('search-input');
+const sortWrap = document.querySelector('.sort-wrap');
+const sortWrapper = document.querySelector('.sort-wrapper');
+const filterWrap = document.querySelector('.filter-wrap');
+const filterWrapper = document.querySelector('.filter-wrapper');
 
 toggle.addEventListener('change', () => {
   const isDark = toggle.checked;
@@ -118,6 +123,11 @@ toggle.addEventListener('change', () => {
   pokemonList.classList.toggle('dark', isDark);
   searchWrap.classList.toggle('dark', isDark);
   searchingInput.classList.toggle('dark', isDark);
+  sortWrap.classList.toggle('dark', isDark);
+  sortWrapper.classList.toggle('dark', isDark);
+  filterWrap.classList.toggle('dark', isDark);
+  filterWrapper.classList.toggle('dark', isDark);
+  
   
   document.querySelectorAll('.list-item').forEach(item => {
     item.classList.toggle('dark', isDark);
@@ -135,3 +145,5 @@ toggle.addEventListener("change", () => {
     darkModeIcon.alt = "Dark mode icon";
   }
 });
+
+
